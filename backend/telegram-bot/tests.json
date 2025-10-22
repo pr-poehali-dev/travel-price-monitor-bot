@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Check bot status",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "status": "string",
+        "configured": "boolean"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Send deal to Telegram",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "deal": {
+          "destination": "Мальдивы",
+          "currentPrice": 1299,
+          "originalPrice": 2599,
+          "discount": 50,
+          "url": "https://travelata.ru/deal/test"
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": "boolean"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
